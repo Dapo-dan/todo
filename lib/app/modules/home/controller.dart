@@ -16,6 +16,7 @@ class HomeController extends GetxController {
   }
 
   @override
+  // ignore: unnecessary_overrides
   void onClose() {
     super.onClose();
   }

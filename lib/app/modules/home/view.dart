@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/app/modules/home/controller.dart';
 import 'package:todo/app/core/utils/extensions.dart';
+import 'package:todo/app/modules/home/widgets/add_card.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({ Key? key }) : super(key: key);
@@ -21,6 +22,12 @@ class HomePage extends GetView<HomeController> {
               ),
               ),
             ),
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
+              children: [AddCard()],
+              )
           ],
       )),
     );
