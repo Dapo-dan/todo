@@ -9,6 +9,7 @@ class HomeController extends GetxController {
   final formKey = GlobalKey<FormState>();
   final editController = TextEditingController();
   final chipIndex = 0.obs; // Default index of zero
+  final deleting = false.obs;
   final tasks = <Task>[].obs; // List of tasks and observe whenever it changes
 
   @override
@@ -22,13 +23,17 @@ class HomeController extends GetxController {
   }
 
   @override
-  // ignore: unnecessary_overrides
   void onClose() {
+    editController.dispose();
     super.onClose();
   }
 
   void changeChipIndex(int value) {
     chipIndex.value = value;
+  }
+
+  void changeDeleting(bool value) {
+    deleting.value = value;
   }
 
   bool addTask(Task task) {
@@ -37,5 +42,9 @@ class HomeController extends GetxController {
     }
     tasks.add(task);
     return true;
+  }
+
+  void deleteTask(Task task) {
+    tasks.remove(task);
   }
 }

@@ -60,7 +60,7 @@ class AddCard extends StatelessWidget {
                                       selected:
                                           homeCtrl.chipIndex.value == index,
                                       onSelected: (bool selected) {
-                                        homeCtrl.chipIndex.value == selected
+                                        homeCtrl.chipIndex.value = selected
                                             ? index
                                             : 0;
                                       },
@@ -90,7 +90,7 @@ class AddCard extends StatelessWidget {
                                   title: homeCtrl.editController.text);
                               Get.back();
                               homeCtrl.addTask(task)
-                                  ? EasyLoading.showSuccess('Create sucess')
+                                  ? EasyLoading.showSuccess('Create success')
                                   : EasyLoading.showError('Duplicated Task');
                             }
                           },
