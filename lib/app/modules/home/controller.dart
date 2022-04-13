@@ -11,6 +11,8 @@ class HomeController extends GetxController {
   final chipIndex = 0.obs; // Default index of zero
   final deleting = false.obs;
   final tasks = <Task>[].obs; // List of tasks and observe whenever it changes
+  final task =
+      Rx<Task?>(null); //This monitors the number of tasks per task type
 
   @override
   void onInit() {
@@ -36,6 +38,10 @@ class HomeController extends GetxController {
     deleting.value = value;
   }
 
+  void changeTask(Task? select) {
+    task.value = select;
+  }
+
   bool addTask(Task task) {
     if (tasks.contains(task)) {
       return false;
@@ -46,5 +52,23 @@ class HomeController extends GetxController {
 
   void deleteTask(Task task) {
     tasks.remove(task);
+  }
+
+  updateTask(Task task, String title) {
+    var todos = task.todos ?? [];
+    if (containTodo(todos, title)) {
+      return false;
+    }
+    var todo = {'title': title, 'done': false};
+    todos.add(todo);
+    var newTask = task.copyWith(todos: todos);
+    int oldId = tasks.indexOf(task);
+    tasks[oldId] = newTask;
+    tasks.refresh();
+    return true;
+  }
+
+  bool containTodo(List todos, String title) {
+    return todos.any((element) => element['title'] == title);
   }
 }
