@@ -34,8 +34,11 @@ class TaskCard extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           // Shows the percentage of tasks completed using gradient color.
           StepProgressIndicator(
-            totalSteps: 100,
-            currentStep: 80,
+            totalSteps:
+                homeController.isTodoEmpty(task) ? 1 : task.todos!.length,
+            currentStep: homeController.isTodoEmpty(task)
+                ? 0
+                : homeController.getDoneTodo(task),
             size: 5,
             padding: 0,
             selectedGradientColor: LinearGradient(
