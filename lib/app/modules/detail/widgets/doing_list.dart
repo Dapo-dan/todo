@@ -45,7 +45,7 @@ class DoingList extends StatelessWidget {
                                     (states) => Colors.grey),
                                 value: element['done'],
                                 onChanged: (value) {
-                                  homeCtrl.doneTodos();
+                                  homeCtrl.doneTodo(element['title']);
                                 },
                               ),
                             ),
@@ -59,7 +59,12 @@ class DoingList extends StatelessWidget {
                           ],
                         ),
                       ))
-                  .toList()
+                  .toList(),
+                  if(homeCtrl.doingTodos.isNotEmpty)
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.0.wp),
+                    child: const Divider(thickness: 2,),
+                  )
             ],
           ));
   }
