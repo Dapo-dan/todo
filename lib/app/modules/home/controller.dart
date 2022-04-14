@@ -130,7 +130,7 @@ class HomeController extends GetxController {
   }
 
   void deleteDoneTodo(dynamic doneTodo) {
-    int index = doingTodos
+    int index = doneTodos
         .indexWhere((element) => mapEquals<String, dynamic>(doneTodo, element));
     doneTodos.removeAt(index);
     doneTodos.refresh();
