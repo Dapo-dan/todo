@@ -26,7 +26,7 @@ class HomePage extends GetView<HomeController> {
                 Padding(
                   padding: EdgeInsets.all(4.0.wp),
                   child: Text(
-                    'My List',
+                    'To-Do List',
                     style: TextStyle(
                         fontSize: 24.0.sp, fontWeight: FontWeight.bold),
                   ),

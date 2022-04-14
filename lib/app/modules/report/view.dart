@@ -25,7 +25,7 @@ class ReportPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(4.0.wp),
                 child: Text(
-                  'My Report',
+                  'To-Do Report',
                   style:
                       TextStyle(fontSize: 24.0.sp, fontWeight: FontWeight.bold),
                 ),
@@ -80,13 +80,13 @@ class ReportPage extends StatelessWidget {
                         Text(
                           '${createdTasks == 0 ? 0 : percentageDone} %',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20.0.sp),
+                              fontWeight: FontWeight.bold, fontSize: 25.0.sp),
                         ),
                         Text(
                           'Efficiency',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 12.0.sp,
+                              fontSize: 15.0.sp,
                               color: Colors.grey),
                         )
                       ],
