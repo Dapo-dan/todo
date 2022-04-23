@@ -7,7 +7,6 @@ class StorageService extends GetxService {
   Future<StorageService> init() async {
     _box = GetStorage();
     // Checks if data is already stored in the local storage
-    // await _box.write(taskKey, []);
     await _box.writeIfNull(taskKey, []);
     return this;
   }
